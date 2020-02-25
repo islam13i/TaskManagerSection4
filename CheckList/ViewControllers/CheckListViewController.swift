@@ -10,29 +10,51 @@ import UIKit
 
 class CheckListViewController: UITableViewController {
     
-    
+    @IBOutlet var menuButton:UIBarButtonItem!
     @IBOutlet weak var deleteBtn: UIBarButtonItem!
+    
     var todoList: ToDoList
     var tableData: [[CheckListItem?]?]!
+    var filteredData: [CheckListItem] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    var searchBarIsEmpty: Bool{
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool{
+        return searchController.isActive ?? !searchBarIsEmpty
+    }
     required init?(coder: NSCoder) {
         todoList = ToDoList()
         super .init(coder: coder)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        configureSearchBar()
+    }
+    
+    private func configureSearchBar(){
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Task"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    private func configureView(){
+        if self.revealViewController() != nil {
+             menuButton.target = self.revealViewController()
+             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = editButtonItem
-       // navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.9188480985, blue: 0.4893374072, alpha: 1)
+        navigationItem.leftBarButtonItems?.append(editButtonItem)
         deleteBtn.isEnabled = false
         tableView.allowsMultipleSelectionDuringEditing = true
-//        tableView.backgroundView = nil;
-//        tableView.backgroundColor = #colorLiteral(red: 1, green: 0.9188480985, blue: 0.4893374072, alpha: 1)
         if let todo: [CheckListItem] = ToDoList.get(){
             todoList.todos = todo
         }
-
     }
-    
     override func setEditing(_ editing: Bool, animated: Bool) {
         if !tableView.isEditing{
             deleteBtn.isEnabled = true
@@ -49,11 +71,20 @@ class CheckListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+           return filteredData.count
+        }
         return todoList.todos.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckListItem", for: indexPath)
-        let item = todoList.todos[indexPath.row]
+        let item: CheckListItem
+        if isFiltering {
+            item = filteredData[indexPath.row]
+        }else{
+            item = todoList.todos[indexPath.row]
+        }
+         
         configureText(cell: cell, item: item)
         configureCheckMark(cell: cell, item: item)
         return cell
@@ -114,7 +145,12 @@ class CheckListViewController: UITableViewController {
         }
         setEditing(false, animated: true)
     }
-    
+    func filterContentForSearchText(_searchText: String, description: CheckListItem? = nil) {
+        filteredData = todoList.todos.filter({ (item: CheckListItem) -> Bool in
+            return item.text.lowercased().contains(_searchText.lowercased())
+        })
+        return tableView.reloadData()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddItemSegue"{
             if let itemDetailViewController = segue.destination as? ItemDetailViewController{
@@ -159,4 +195,11 @@ extension CheckListViewController: ItemDetailVDelegate{
         tableView.reloadData()
     }
     
+}
+
+extension CheckListViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(_searchText: searchBar.text!)
+     }
 }

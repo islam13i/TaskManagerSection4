@@ -23,7 +23,7 @@ class ToDoList{
         ToDoList.saveData(list: todos)
         return item
     }
-    
+
     func moveItem(item: CheckListItem, index: Int) {
         guard let currentIndex = todos.firstIndex(of: item) else {
             return

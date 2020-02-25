@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450561EA23FD3FED00A23F23 /* StopWatch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450561E923FD3FEC00A23F23 /* StopWatch.storyboard */; };
+		450561ED23FD3FFE00A23F23 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450561EB23FD3FFE00A23F23 /* TimerViewController.swift */; };
+		450561EE23FD3FFE00A23F23 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450561EC23FD3FFE00A23F23 /* StopWatchViewController.swift */; };
+		4528BBF023FD588C00219DD6 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528BBEF23FD588C00219DD6 /* SideBarTableViewController.swift */; };
 		4555644223EAA921000B56D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4555644123EAA921000B56D0 /* AppDelegate.swift */; };
 		4555644423EAA921000B56D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4555644323EAA921000B56D0 /* SceneDelegate.swift */; };
 		4555644623EAA921000B56D0 /* CheckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4555644523EAA921000B56D0 /* CheckListViewController.swift */; };
@@ -17,9 +21,14 @@
 		4588B78523EC2128005140BF /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78423EC2128005140BF /* ToDoList.swift */; };
 		4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78623EC54A0005140BF /* ItemDetailViewController.swift */; };
 		45E092CE23F0408400CF3DB5 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */; };
+		45EC983C23FEBF080065D7D8 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		450561E923FD3FEC00A23F23 /* StopWatch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StopWatch.storyboard; sourceTree = "<group>"; };
+		450561EB23FD3FFE00A23F23 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		450561EC23FD3FFE00A23F23 /* StopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		4528BBEF23FD588C00219DD6 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		4555643E23EAA921000B56D0 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4555644123EAA921000B56D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4555644323EAA921000B56D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +41,9 @@
 		4588B78423EC2128005140BF /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		4588B78623EC54A0005140BF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
+		45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckList-Bridging-Header.h"; sourceTree = "<group>"; };
+		45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../../../../../Downloads/SidebarMenu/SidebarMenu/SWRevealViewController.m; sourceTree = "<group>"; };
+		45EC983B23FEBF080065D7D8 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../../../../../Downloads/SidebarMenu/SidebarMenu/SWRevealViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +57,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450561DD23FD37FE00A23F23 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4555644523EAA921000B56D0 /* CheckListViewController.swift */,
+				4588B78623EC54A0005140BF /* ItemDetailViewController.swift */,
+				450561EC23FD3FFE00A23F23 /* StopWatchViewController.swift */,
+				450561EB23FD3FFE00A23F23 /* TimerViewController.swift */,
+				4528BBEF23FD588C00219DD6 /* SideBarTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		450561DE23FD383D00A23F23 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		450561DF23FD384D00A23F23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4555645523EAC79A000B56D0 /* CheckListItem.swift */,
+				4588B78423EC2128005140BF /* ToDoList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4555643523EAA921000B56D0 = {
 			isa = PBXGroup;
 			children = (
@@ -64,19 +105,29 @@
 		4555644023EAA921000B56D0 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				45EC983523FEA9BF0065D7D8 /* Frameworks */,
+				450561DF23FD384D00A23F23 /* Models */,
+				450561DE23FD383D00A23F23 /* Views */,
+				450561DD23FD37FE00A23F23 /* ViewControllers */,
 				4555644123EAA921000B56D0 /* AppDelegate.swift */,
 				4555644323EAA921000B56D0 /* SceneDelegate.swift */,
-				4555644523EAA921000B56D0 /* CheckListViewController.swift */,
 				4555644723EAA921000B56D0 /* Main.storyboard */,
+				450561E923FD3FEC00A23F23 /* StopWatch.storyboard */,
 				4555644A23EAA922000B56D0 /* Assets.xcassets */,
 				4555644C23EAA922000B56D0 /* LaunchScreen.storyboard */,
 				4555644F23EAA922000B56D0 /* Info.plist */,
-				4555645523EAC79A000B56D0 /* CheckListItem.swift */,
-				4588B78423EC2128005140BF /* ToDoList.swift */,
-				4588B78623EC54A0005140BF /* ItemDetailViewController.swift */,
-				45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */,
 			);
 			path = CheckList;
+			sourceTree = "<group>";
+		};
+		45EC983523FEA9BF0065D7D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45EC983B23FEBF080065D7D8 /* SWRevealViewController.h */,
+				45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */,
+				45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +162,7 @@
 				TargetAttributes = {
 					4555643D23EAA921000B56D0 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -137,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450561EA23FD3FED00A23F23 /* StopWatch.storyboard in Resources */,
 				4555644E23EAA922000B56D0 /* LaunchScreen.storyboard in Resources */,
 				4555644B23EAA922000B56D0 /* Assets.xcassets in Resources */,
 				4555644923EAA921000B56D0 /* Main.storyboard in Resources */,
@@ -154,9 +207,13 @@
 				4555644623EAA921000B56D0 /* CheckListViewController.swift in Sources */,
 				4555644223EAA921000B56D0 /* AppDelegate.swift in Sources */,
 				4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */,
+				450561EE23FD3FFE00A23F23 /* StopWatchViewController.swift in Sources */,
+				450561ED23FD3FFE00A23F23 /* TimerViewController.swift in Sources */,
 				4588B78523EC2128005140BF /* ToDoList.swift in Sources */,
 				4555644423EAA921000B56D0 /* SceneDelegate.swift in Sources */,
+				45EC983C23FEBF080065D7D8 /* SWRevealViewController.m in Sources */,
 				4555645623EAC79A000B56D0 /* CheckListItem.swift in Sources */,
+				4528BBF023FD588C00219DD6 /* SideBarTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +296,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -292,6 +350,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -300,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U63823ANYA;
 				INFOPLIST_FILE = CheckList/Info.plist;
@@ -309,6 +369,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = islam.CheckList;
 				PRODUCT_NAME = TaskManager;
+				SWIFT_OBJC_BRIDGING_HEADER = "CheckList/Frameworks/CheckList-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -318,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U63823ANYA;
 				INFOPLIST_FILE = CheckList/Info.plist;
@@ -327,6 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = islam.CheckList;
 				PRODUCT_NAME = TaskManager;
+				SWIFT_OBJC_BRIDGING_HEADER = "CheckList/Frameworks/CheckList-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
