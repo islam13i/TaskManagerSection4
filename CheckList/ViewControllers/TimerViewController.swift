@@ -15,11 +15,14 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var pauseBtn: UIButton!
     @IBOutlet weak var stopBtn: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    //var timerInterval: Double = 0.0
     var timer = Timer()
     var time: Int = 0
     var timePickerValueSec: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         timePicker.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         timePicker.addTarget(self, action: #selector(datePickerChanged(paramDatePicker:)), for: .valueChanged)
         time = 60
@@ -30,8 +33,8 @@ class TimerViewController: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-    
     @objc func datePickerChanged(paramDatePicker: UIDatePicker) {
+        print(timePicker.date)
         let calendar = Calendar.current
         if paramDatePicker.isEqual(self.timePicker){
             let hour = calendar.component(.hour, from: paramDatePicker.date) * 3600
@@ -40,6 +43,11 @@ class TimerViewController: UIViewController {
             time = timePickerValueSec
             timerValueLabel.text = convToSec()
         }
+        if (Int(timePicker.countDownDuration) == (timePicker.minuteInterval * 60))
+               {
+                  // sender.setDate(minDate, animated: true)
+                   timePicker.countDownDuration = TimeInterval(60)
+               }
     }
     func runTimer(){
         if time <= 0 {
@@ -74,5 +82,26 @@ class TimerViewController: UIViewController {
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
+    
 }
 
+//extension TimerViewController: UITextFieldDelegate {
+//
+//   //Add this function to prevent keyboard editing
+//   func textField(_ textField: UITextField,
+//           shouldChangeCharactersIn range: NSRange,
+//           replacementString string: String) -> Bool {
+//       return false
+//  }
+//
+//  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//    if textField === timerValueLabel {
+//      //Set the time interval of the date picker after a short delay
+//      DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//        self.timePicker.countDownDuration = TimeInterval(self.time) ?? 60
+//      }
+//
+//    }
+//    return true
+//  }
+//}
