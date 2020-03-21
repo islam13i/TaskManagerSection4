@@ -18,7 +18,7 @@ class ItemDetailViewController: UITableViewController {
     
     weak var delegate:  ItemDetailVDelegate?
     var todoList: Results<CheckListItem>?
-    weak var itemToEdit: CheckListItem?
+    var itemToEdit: CheckListItem?
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -29,8 +29,10 @@ class ItemDetailViewController: UITableViewController {
     }
     @IBAction func done(_ sender: Any) {
         if let item = itemToEdit, let text = textField.text, let descText = descriptionTextField.text{
-            item.text = text
-            item.descText = descText
+            try! DBManager.sharedInstance.database.write{
+                item.text = text
+                item.descText = descText
+            }
             delegate?.ItemDetailViewController(self, didFinishEditing: item)
         }else{
                 let item = CheckListItem()

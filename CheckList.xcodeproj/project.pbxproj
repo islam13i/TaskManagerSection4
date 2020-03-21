@@ -18,7 +18,6 @@
 		4555644B23EAA922000B56D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4555644A23EAA922000B56D0 /* Assets.xcassets */; };
 		4555644E23EAA922000B56D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4555644C23EAA922000B56D0 /* LaunchScreen.storyboard */; };
 		4555645623EAC79A000B56D0 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4555645523EAC79A000B56D0 /* CheckListItem.swift */; };
-		4588B78523EC2128005140BF /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78423EC2128005140BF /* ToDoList.swift */; };
 		4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78623EC54A0005140BF /* ItemDetailViewController.swift */; };
 		45E092CE23F0408400CF3DB5 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */; };
 		45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC59A42426381D006C8BE2 /* SWRevealViewController.m */; };
@@ -41,7 +40,6 @@
 		4555644D23EAA922000B56D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4555644F23EAA922000B56D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4555645523EAC79A000B56D0 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
-		4588B78423EC2128005140BF /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		4588B78623EC54A0005140BF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
 		45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckList-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				4555645523EAC79A000B56D0 /* CheckListItem.swift */,
-				4588B78423EC2128005140BF /* ToDoList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,7 +277,6 @@
 				4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */,
 				450561EE23FD3FFE00A23F23 /* StopWatchViewController.swift in Sources */,
 				450561ED23FD3FFE00A23F23 /* TimerViewController.swift in Sources */,
-				4588B78523EC2128005140BF /* ToDoList.swift in Sources */,
 				45FC59A8242657FB006C8BE2 /* DBManager.swift in Sources */,
 				4555644423EAA921000B56D0 /* SceneDelegate.swift in Sources */,
 				45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */,
