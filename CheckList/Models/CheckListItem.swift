@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-class CheckListItem: NSObject, Codable {
-    var text = ""
-    var descText = ""
-    var checked = false
+class CheckListItem: Object, Codable {
+    @objc dynamic var text = ""
+    @objc dynamic var descText = ""
+    @objc dynamic var checked = false
     
     func toggleChecked() {
         checked = !checked

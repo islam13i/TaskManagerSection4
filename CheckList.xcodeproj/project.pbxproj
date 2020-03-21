@@ -22,6 +22,7 @@
 		4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78623EC54A0005140BF /* ItemDetailViewController.swift */; };
 		45E092CE23F0408400CF3DB5 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */; };
 		45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC59A42426381D006C8BE2 /* SWRevealViewController.m */; };
+		45FC59A8242657FB006C8BE2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC59A7242657FB006C8BE2 /* DBManager.swift */; };
 		90EE036DEC93450E5E394872 /* Pods_CheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F29CC3D431ADAD17E920709 /* Pods_CheckList.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckList-Bridging-Header.h"; sourceTree = "<group>"; };
 		45FC59A42426381D006C8BE2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = CheckList/Fraemworks/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
 		45FC59A52426381D006C8BE2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = CheckList/Fraemworks/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
+		45FC59A7242657FB006C8BE2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7F29CC3D431ADAD17E920709 /* Pods_CheckList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82687B639202DEE36C494FFF /* Pods-CheckList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckList.debug.xcconfig"; path = "Target Support Files/Pods-CheckList/Pods-CheckList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				450561EC23FD3FFE00A23F23 /* StopWatchViewController.swift */,
 				450561EB23FD3FFE00A23F23 /* TimerViewController.swift */,
 				4528BBEF23FD588C00219DD6 /* SideBarTableViewController.swift */,
+				45FC59A7242657FB006C8BE2 /* DBManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				450561EE23FD3FFE00A23F23 /* StopWatchViewController.swift in Sources */,
 				450561ED23FD3FFE00A23F23 /* TimerViewController.swift in Sources */,
 				4588B78523EC2128005140BF /* ToDoList.swift in Sources */,
+				45FC59A8242657FB006C8BE2 /* DBManager.swift in Sources */,
 				4555644423EAA921000B56D0 /* SceneDelegate.swift in Sources */,
 				45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */,
 				4555645623EAC79A000B56D0 /* CheckListItem.swift in Sources */,

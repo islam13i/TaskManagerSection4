@@ -7,13 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-class ToDoList{
+class ToDoList: Object{
     static let defaults = UserDefaults.standard
-    var todos: [CheckListItem] = []
-    init() {
+    @objc dynamic var todos: [CheckListItem] = []
 
-    }
     
     func newItem() -> CheckListItem{
         let item = CheckListItem()
