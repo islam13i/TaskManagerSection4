@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol ItemDetailVDelegate: class {
     func ItemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
@@ -16,7 +17,7 @@ protocol ItemDetailVDelegate: class {
 class ItemDetailViewController: UITableViewController {
     
     weak var delegate:  ItemDetailVDelegate?
-    weak var todoList: ToDoList?
+    var todoList: Results<CheckListItem>?
     weak var itemToEdit: CheckListItem?
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
@@ -32,14 +33,15 @@ class ItemDetailViewController: UITableViewController {
             item.descText = descText
             delegate?.ItemDetailViewController(self, didFinishEditing: item)
         }else{
-            if let item = todoList?.newItem(){
+                let item = CheckListItem()
+                
                 if let textFieldtext = textField.text, let descText = descriptionTextField.text{
                     item.text = textFieldtext
                     item.descText = descText
                 }
                 item.checked = false
                 delegate?.ItemDetailViewController(self, didFinishAdding: item)
-            }
+            
         }
     }
     override func viewDidLoad() {

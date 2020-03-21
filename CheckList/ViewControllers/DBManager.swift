@@ -8,30 +8,30 @@
 import UIKit
 import RealmSwift
 
-class DBManager{
-    private var database:Realm
-    static let sharedInstance = DBManager()
-    private init() {
+class DBManager {
+     var   database:Realm
+    static let  sharedInstance = DBManager()
+     init() {
        database = try! Realm()
     }
-//    func getDataFromDB() -> [CheckListItem] {
-//      let results: [CheckListItem] =   database.objects(CheckListItem.self)
-//      return results
-//     }
-//     func addData(object: Item)   {
-//          try! database.write {
-//             database.add(object, update: true)
-//             print("Added new object")
-//          }
-//     }
-//      func deleteAllFromDatabase()  {
-//           try!   database.write {
-//               database.deleteAll()
-//           }
-//      }
-//      func deleteFromDb(object: Item)   {
-//          try!   database.write {
-//             database.delete(object)
-//          }
-//      }
+    func getDataFromDB() ->   Results<CheckListItem> {
+      let results: Results<CheckListItem> = database.objects(CheckListItem.self)
+      return results
+     }
+     func addData(object: CheckListItem)   {
+          try! database.write {
+            database.add(object, update: .all)
+             print("Added new object")
+          }
+     }
+      func deleteAllFromDatabase()  {
+           try!   database.write {
+               database.deleteAll()
+           }
+      }
+      func deleteFromDb(object: CheckListItem)   {
+          try!   database.write {
+             database.delete(object)
+          }
+      }
 }

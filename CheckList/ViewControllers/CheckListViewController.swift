@@ -14,9 +14,9 @@ class CheckListViewController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
     @IBOutlet weak var deleteBtn: UIBarButtonItem!
     
-    var todoList: ToDoList
-    var tableData: [[CheckListItem?]?]!
-    var filteredData: [CheckListItem] = []
+    //let realm = try! Realm()
+    var todoList: Results<CheckListItem>!
+    var filteredData: LazyFilterSequence<Results<CheckListItem>>!
     let searchController = UISearchController(searchResultsController: nil)
     var searchBarIsEmpty: Bool{
         return searchController.searchBar.text?.isEmpty ?? true
@@ -24,10 +24,8 @@ class CheckListViewController: UITableViewController {
     var isFiltering: Bool{
         return searchController.isActive ?? !searchBarIsEmpty
     }
-    required init?(coder: NSCoder) {
-        todoList = ToDoList()
-        super .init(coder: coder)
-    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +50,8 @@ class CheckListViewController: UITableViewController {
         navigationItem.leftBarButtonItems?.append(editButtonItem)
         deleteBtn.isEnabled = false
         tableView.allowsMultipleSelectionDuringEditing = true
-        if let todo: [CheckListItem] = ToDoList.get(){
-            todoList.todos = todo
+        if let todo: Results<CheckListItem> = DBManager.sharedInstance.database.objects(CheckListItem.self){
+            todoList = todo
         }
     }
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -66,16 +64,16 @@ class CheckListViewController: UITableViewController {
         tableView.setEditing(tableView.isEditing, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        todoList.moveItem(item: todoList.todos[sourceIndexPath.row], index: destinationIndexPath.row)
-        ToDoList.saveData(list: todoList.todos)
-    }
+//    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        todoList.moveItem(item: todoList.todos[sourceIndexPath.row], index: destinationIndexPath.row)
+//       // ToDoList.saveData(list: todoList.todos)
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
            return filteredData.count
         }
-        return todoList.todos.count
+        return todoList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckListItem", for: indexPath)
@@ -83,7 +81,7 @@ class CheckListViewController: UITableViewController {
         if isFiltering {
             item = filteredData[indexPath.row]
         }else{
-            item = todoList.todos[indexPath.row]
+            item = todoList[indexPath.row]
         }
          
         configureText(cell: cell, item: item)
@@ -100,17 +98,17 @@ class CheckListViewController: UITableViewController {
             if isFiltering {
                 item = filteredData[indexPath.row]
             }else{
-                item = todoList.todos[indexPath.row]
+                item = todoList[indexPath.row]
             }
-           // let item = todoList.todos[indexPath.row]
             item.toggleChecked() 
             configureCheckMark(cell: cell, item: item)
             tableView.deselectRow(at : indexPath, animated: true)
-            ToDoList.saveData(list: todoList.todos)
+         //   ToDoList.saveData(list: todoList)
         } 
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        todoList.todos.remove(at: indexPath.row)
+        //DBManager.deleteFromDb()
+      //  todoList.(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
@@ -132,21 +130,24 @@ class CheckListViewController: UITableViewController {
         }
     }
     
-    @IBAction func AddItem(_ sender: Any) {
-        let newRowIndex = todoList.todos.count
-        _ = todoList.newItem()
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic )
-    }
+//    @IBAction func AddItem(_ sender: Any) {
+//        let newRowIndex = todoList.count
+//        _ = todoList.newItem()
+//        let indexPath = IndexPath(row: newRowIndex, section: 0)
+//        let indexPaths = [indexPath]
+//        tableView.insertRows(at: indexPaths, with: .automatic )
+//    }
     
     @IBAction func deleteItems(_ sender: Any) {
         if let selecteRows = tableView.indexPathsForSelectedRows{
-            var items = [CheckListItem]()
+            let items = List<CheckListItem>()
             for indexPath in selecteRows {
-                items.append(todoList.todos[indexPath.row])
+                items.append(todoList[indexPath.row])
             }
-            todoList.removeItems(items: items)
+            try! DBManager.sharedInstance.database.write{
+                DBManager.sharedInstance.database.delete(items)
+            }
+            //todoList.removeItems(items: items)
             tableView.beginUpdates()
             tableView.deleteRows(at: selecteRows, with: .automatic)
             tableView.endUpdates()
@@ -154,7 +155,7 @@ class CheckListViewController: UITableViewController {
         setEditing(false, animated: true)
     }
     func filterContentForSearchText(_searchText: String, description: CheckListItem? = nil) {
-        filteredData = todoList.todos.filter({ (item: CheckListItem) -> Bool in
+        filteredData = todoList.filter({ (item: CheckListItem) -> Bool in
             return item.text.lowercased().contains(_searchText.lowercased())
         })
         return tableView.reloadData()
@@ -172,7 +173,7 @@ class CheckListViewController: UITableViewController {
                     if isFiltering {
                         item = filteredData[indexPath.row]
                     }else{
-                        item = todoList.todos[indexPath.row]
+                        item = todoList[indexPath.row]
                     }
                     itemDetailViewController.itemToEdit = item
                     itemDetailViewController.delegate = self
@@ -189,22 +190,25 @@ extension CheckListViewController: ItemDetailVDelegate{
     
     func ItemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: CheckListItem) {
         navigationController?.popViewController(animated: true)
-        let rowIndex = todoList.todos.count - 1
+        try! DBManager.sharedInstance.database.write{
+            DBManager.sharedInstance.database.add(item)
+        }
+        let rowIndex = todoList.count - 1
         let indexPath = IndexPath.init(row: rowIndex, section: 0)
         let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic )
-        ToDoList.saveData(list: todoList.todos)
+        self.tableView.insertRows(at: indexPaths, with: .automatic )
+        //ToDoList.saveData(list: todoList.todos)
     }
     
     func ItemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: CheckListItem) {
-        if let index = todoList.todos.firstIndex(of: item){
+        if let index = todoList.firstIndex(of: item){
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath){
                 configureText(cell: cell, item: item)
             }
         }
         navigationController?.popViewController(animated: true )
-        ToDoList.saveData(list: todoList.todos)
+        //ToDoList.saveData(list: todoList.todos)
         tableView.reloadData()
     }
     
