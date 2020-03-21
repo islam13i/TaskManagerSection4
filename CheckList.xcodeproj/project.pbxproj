@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,10 +21,12 @@
 		4588B78523EC2128005140BF /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78423EC2128005140BF /* ToDoList.swift */; };
 		4588B78723EC54A0005140BF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588B78623EC54A0005140BF /* ItemDetailViewController.swift */; };
 		45E092CE23F0408400CF3DB5 /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */; };
-		45EC983C23FEBF080065D7D8 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */; };
+		45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC59A42426381D006C8BE2 /* SWRevealViewController.m */; };
+		90EE036DEC93450E5E394872 /* Pods_CheckList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F29CC3D431ADAD17E920709 /* Pods_CheckList.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24E8A4F94C651412C74CA7A1 /* Pods-CheckList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckList.release.xcconfig"; path = "Target Support Files/Pods-CheckList/Pods-CheckList.release.xcconfig"; sourceTree = "<group>"; };
 		450561E923FD3FEC00A23F23 /* StopWatch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StopWatch.storyboard; sourceTree = "<group>"; };
 		450561EB23FD3FFE00A23F23 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		450561EC23FD3FFE00A23F23 /* StopWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
@@ -42,8 +44,10 @@
 		4588B78623EC54A0005140BF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		45E092CD23F0408400CF3DB5 /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListTableViewCell.swift; sourceTree = "<group>"; };
 		45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckList-Bridging-Header.h"; sourceTree = "<group>"; };
-		45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../../../../../Downloads/SidebarMenu/SidebarMenu/SWRevealViewController.m; sourceTree = "<group>"; };
-		45EC983B23FEBF080065D7D8 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../../../../../Downloads/SidebarMenu/SidebarMenu/SWRevealViewController.h; sourceTree = "<group>"; };
+		45FC59A42426381D006C8BE2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = CheckList/Fraemworks/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
+		45FC59A52426381D006C8BE2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = CheckList/Fraemworks/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
+		7F29CC3D431ADAD17E920709 /* Pods_CheckList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82687B639202DEE36C494FFF /* Pods-CheckList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckList.debug.xcconfig"; path = "Target Support Files/Pods-CheckList/Pods-CheckList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90EE036DEC93450E5E394872 /* Pods_CheckList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,8 @@
 			children = (
 				4555644023EAA921000B56D0 /* CheckList */,
 				4555643F23EAA921000B56D0 /* Products */,
+				C04FA327BEABE2DC56C4CF8D /* Pods */,
+				6C0EA5CA2B04E6F3CA4E2DB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,11 +130,28 @@
 		45EC983523FEA9BF0065D7D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				45EC983B23FEBF080065D7D8 /* SWRevealViewController.h */,
-				45EC983A23FEBF080065D7D8 /* SWRevealViewController.m */,
+				45FC59A52426381D006C8BE2 /* SWRevealViewController.h */,
+				45FC59A42426381D006C8BE2 /* SWRevealViewController.m */,
 				45EC983923FEBF070065D7D8 /* CheckList-Bridging-Header.h */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C0EA5CA2B04E6F3CA4E2DB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F29CC3D431ADAD17E920709 /* Pods_CheckList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C04FA327BEABE2DC56C4CF8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82687B639202DEE36C494FFF /* Pods-CheckList.debug.xcconfig */,
+				24E8A4F94C651412C74CA7A1 /* Pods-CheckList.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4555645223EAA922000B56D0 /* Build configuration list for PBXNativeTarget "CheckList" */;
 			buildPhases = (
+				068652E81EB3DA3D4E50A2C4 /* [CP] Check Pods Manifest.lock */,
 				4555643A23EAA921000B56D0 /* Sources */,
 				4555643B23EAA921000B56D0 /* Frameworks */,
 				4555643C23EAA921000B56D0 /* Resources */,
+				A5F1CB1DD8A4AFA5B21D83CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +224,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		068652E81EB3DA3D4E50A2C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheckList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5F1CB1DD8A4AFA5B21D83CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheckList/Pods-CheckList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheckList/Pods-CheckList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheckList/Pods-CheckList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4555643A23EAA921000B56D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,7 +279,7 @@
 				450561ED23FD3FFE00A23F23 /* TimerViewController.swift in Sources */,
 				4588B78523EC2128005140BF /* ToDoList.swift in Sources */,
 				4555644423EAA921000B56D0 /* SceneDelegate.swift in Sources */,
-				45EC983C23FEBF080065D7D8 /* SWRevealViewController.m in Sources */,
+				45FC59A62426381D006C8BE2 /* SWRevealViewController.m in Sources */,
 				4555645623EAC79A000B56D0 /* CheckListItem.swift in Sources */,
 				4528BBF023FD588C00219DD6 /* SideBarTableViewController.swift in Sources */,
 			);
@@ -357,6 +425,7 @@
 		};
 		4555645323EAA922000B56D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82687B639202DEE36C494FFF /* Pods-CheckList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
@@ -378,6 +447,7 @@
 		};
 		4555645423EAA922000B56D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E8A4F94C651412C74CA7A1 /* Pods-CheckList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
