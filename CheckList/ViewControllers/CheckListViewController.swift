@@ -94,8 +94,15 @@ class CheckListViewController: UITableViewController {
         if tableView.isEditing {
             return
         }
+        
         if let cell = tableView.cellForRow(at: indexPath){
-            let item = todoList.todos[indexPath.row]
+            let item: CheckListItem
+            if isFiltering {
+                item = filteredData[indexPath.row]
+            }else{
+                item = todoList.todos[indexPath.row]
+            }
+           // let item = todoList.todos[indexPath.row]
             item.toggleChecked() 
             configureCheckMark(cell: cell, item: item)
             tableView.deselectRow(at : indexPath, animated: true)
@@ -161,7 +168,12 @@ class CheckListViewController: UITableViewController {
         }else if segue.identifier == "EditItemSegue"{
             if let itemDetailViewController = segue.destination as? ItemDetailViewController{
                 if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell){
-                    let item = todoList.todos[indexPath.row]
+                    let item: CheckListItem
+                    if isFiltering {
+                        item = filteredData[indexPath.row]
+                    }else{
+                        item = todoList.todos[indexPath.row]
+                    }
                     itemDetailViewController.itemToEdit = item
                     itemDetailViewController.delegate = self
                 }
